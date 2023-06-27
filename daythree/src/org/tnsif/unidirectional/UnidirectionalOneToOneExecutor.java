@@ -13,15 +13,17 @@ public class UnidirectionalOneToOneExecutor {
 		EntityManager em=factory.createEntityManager();
 		em.getTransaction().begin();
 		
-		Customer c=new Customer();
-		c.setName("Prabal");
+		Customer c = new Customer();
+		c.setCustomername("Niket");
 		
-		Address a=new Address();
-		a.setPincode(455454);
+		Address a = new Address();
+		a.setPincode(401501);
 		a.setCity("Boisar");
-		a.setArea("Keshav nagar");
+		a.setArea("Bhimnagar");
 		
 		c.setAddress(a);
+		em.persist(c);
+			
 		
 		em.getTransaction().commit();
 		System.out.println("The data is added successfully");
