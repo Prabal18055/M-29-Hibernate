@@ -4,7 +4,7 @@ import org.tnsif.dao.EmployeeDao;
 import org.tnsif.dao.EmployeeDaoImpl;
 import org.tnsif.entities.Employee;
 
-public abstract class EmployeeServiceImpl implements EmployeeService {
+public class EmployeeServiceImpl implements EmployeeService {
 	
 	private EmployeeDao dao;
 	
@@ -14,18 +14,7 @@ public abstract class EmployeeServiceImpl implements EmployeeService {
 	}
 	
 
-	public void createEmployeee(Employee emp) {
-		dao.beginTransaction();
-		dao.addEmployee(emp);
-		dao.commitTransaction();
-		
-	}
-
-	public Employee retriveEmployee(int id) {
-		
-		Employee emp = dao.getEmployee(id);
-		return emp;
-	}
+	
 
 	@Override
 	public void updateEmployee(Employee emp) {
@@ -35,10 +24,44 @@ public abstract class EmployeeServiceImpl implements EmployeeService {
 		
 	}
 
-	public void removeEmployee(Employee emp) {
+	
+
+
+	@Override
+	public void addEmployee(Employee emp) {
+		dao.beginTransaction();
+		dao.addEmployee(emp);
+		dao.commitTransaction();
+		
+	}
+
+
+	@Override
+	public Employee getEmployee(int id) {
+		Employee emp = dao.getEmployee(id);
+		return emp;
+	}
+
+
+	@Override
+	public void deleteEmployee(Employee emp) {
 		dao.beginTransaction();
 		dao.deleteEmployee(emp);
 		dao.commitTransaction();
+		
+	}
+
+
+	@Override
+	public void beginTransaction() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void commitTransaction() {
+		// TODO Auto-generated method stub
 		
 	}
 
