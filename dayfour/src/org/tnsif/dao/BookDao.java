@@ -12,5 +12,7 @@ public interface BookDao {
 	List<Book>getAuthorBooks(String author);
 	List<Book>getBookByTitle(String title);
 	List<Book>getBookByPrice(double low, double high);
+	
+}
 			
 	
